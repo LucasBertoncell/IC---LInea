@@ -1,0 +1,44 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+
+##---ESTIMATING VARIANCE BASED ON PAPER BY LANDY AND SZALAY---
+
+
+def file_len(fname):
+    with open(fname) as f:
+        for i, l in enumerate(f):
+            pass
+    return i + 1
+
+DD = []
+DR = []
+RD = []
+RR = []
+x = []
+xi_of_x = []
+
+file_CUTEoutput = '/home/luke/Desktop/IC/dados/acf_shell3_noPM.dat'
+
+with open(file_CUTEoutput) as CUTE: 
+
+    for line in CUTE:
+        column = line.split()
+        if not line.startswith('#'): #skipping column labels
+
+            a = float(column[0])
+            b = float(column[1])
+            c = float(column[2])
+            d = float(column[3])
+            e = float(column[4])
+            f = float(column[5])
+
+            x.append(a)
+            xi_of_x.append(b)
+            DD.append(c)
+            DR.append(d)
+            RD.append(e) # not used
+            RR.append(f)
+
+
